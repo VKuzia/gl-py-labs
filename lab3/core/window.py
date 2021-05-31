@@ -1,10 +1,8 @@
 import moderngl_window as mglw
 from pathlib import Path
 import moderngl
-from moderngl_window.scene import KeyboardCamera
-from pyrr import Matrix44
 
-from lab3.core.Camera import MovingCamera
+from lab3.core.camera import MovingCamera
 from lab3.core.model.model import Model
 from lab3.core.scene import Scene
 

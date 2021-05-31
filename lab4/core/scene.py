@@ -4,15 +4,6 @@ import typing as tp
 from moderngl_window.opengl.vao import VAO
 from pyrr import Matrix44
 
-vertex_shader = '''
-
-'''
-
-fragment_shader = '''
-#version 330
-
-'''
-
 
 class Scene:
 

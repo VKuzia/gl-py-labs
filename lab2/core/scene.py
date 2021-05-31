@@ -35,13 +35,15 @@ void main() {
 
 class Scene:
 
-    def __init__(self, context: moderngl.Context):
+    def __init__(self, context: moderngl.Context, aspect_ratio):
         self.program = context.program(vertex_shader=vertex_shader, fragment_shader=fragment_shader)
         view_translation = (0, 0, -5.0)
         self.program['view'].write(Matrix44.from_translation(view_translation, dtype='f4'))
-        perspective_projection = Matrix44.perspective_projection(30, 16 / 9, 1, 10, dtype='f4')
+        self.update_proj(aspect_ratio)
+
+    def update_proj(self, aspect_ratio):
+        perspective_projection = Matrix44.perspective_projection(30, aspect_ratio, 1, 10, dtype='f4')
         self.program['proj'].write(perspective_projection)
-        pass
 
     def render(self, rendering_data):
         for geometry, model in rendering_data:

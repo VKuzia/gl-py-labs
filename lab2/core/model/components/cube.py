@@ -17,10 +17,10 @@ class Cube(Component):
         super().__init__(translation, rotation, cube(size=(size, size, size)))
         self.texture = texture
         self.base_translation = translation
+        self.size = size
         self.texture.use(location=0)
 
     def update(self, time, interval):
         self.rotation = tuple([_update_rotation_cord(rotation_cord, interval) for rotation_cord in self.rotation])
         self.translation = (self.base_translation[0] + np.sin(time), self.base_translation[1] + np.cos(time),
-                            self.base_translation[2] + np.sin(time) + np.cos(time))
-
+                            self.base_translation[2] + (np.sin(time) + np.cos(time)) * self.size)

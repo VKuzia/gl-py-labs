@@ -1,5 +1,5 @@
 import moderngl_window
-from core.window import Window
+from lab2.core.window import Window
 
 
 if __name__ == '__main__':

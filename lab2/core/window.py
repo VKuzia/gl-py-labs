@@ -24,6 +24,6 @@ class Window(mglw.WindowConfig):
         self.model.update(time, interval)
         self.scene.render(self.model.get_rendering_data())
 
-    def resize(self, width, height):
+    def resize(self, width: int, height: int):
         self.ctx.viewport = (0, 0, width, height)
         self.scene.update_proj(width / height)

@@ -1,9 +1,14 @@
+from moderngl_window.opengl.vao import VAO
 from pyrr import Matrix44
+import typing as tp
 
 
 class Component:
 
-    def __init__(self, translation, rotation, geometry):
+    def __init__(self,
+                 translation: tp.Tuple[float, float, float],
+                 rotation: tp.Tuple[float, float, float],
+                 geometry: VAO):
         self.translation = translation
         self.rotation = rotation
         self.geometry = geometry

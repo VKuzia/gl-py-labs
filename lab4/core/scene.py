@@ -12,9 +12,11 @@ class Scene:
         self.camera_translation_matrix = Matrix44.from_translation(camera_translation, dtype='f4')
         self.update_view(self.camera_translation_matrix)
         self.update_proj(aspect_ratio)
+        self.program['global_light_pos'] = 1.0, 1.0, 2.0
+        self.program['light_color'] = 1.0, 1.0, 1.0
 
     def update_proj(self, aspect_ratio: float):
-        perspective_projection = Matrix44.perspective_projection(30, aspect_ratio, 1, 10, dtype='f4')
+        perspective_projection = Matrix44.perspective_projection(30, aspect_ratio, 0.1, 100, dtype='f4')
         self.program['proj'].write(perspective_projection)
 
     def update_view(self, camera_matrix):
